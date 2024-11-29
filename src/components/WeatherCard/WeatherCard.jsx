@@ -1,3 +1,4 @@
+import "./WeatherCard.css";
 import Sunny from "../../assets/tempSunny.svg";
 
 function WeatherCard() {

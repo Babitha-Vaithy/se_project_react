@@ -1,0 +1,22 @@
+.cards {
+  max-width: fit-content;
+  width: 1360px;
+}
+
+.cards__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  list-style-type: none;
+  gap: 20px;
+  padding: 0;
+  justify-content: center;
+}
+
+.cards__text {
+  font-size: 20px;
+  line-height: 24.8px;
+  font-weight: 700;
+  font-family: "Cabinet Grotesk";
+  margin: 40px 0 34px 0;
+}
