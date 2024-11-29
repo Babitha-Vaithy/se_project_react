@@ -1,0 +1,11 @@
+.weather__card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-card__image {
+  margin: 20px auto;
+  padding: 10px;
+  width: 80%;
+}
