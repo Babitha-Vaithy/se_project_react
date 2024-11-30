@@ -1,22 +1,13 @@
 .modal__content_type_image {
-  width: 100%;
-  max-width: 498px;
-  height: 578px;
-  border-radius: 16px;
-  position: relative;
-  padding: 0;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  border-radius: 16px;
 }
 
 .modal__image {
   max-width: 100%;
   height: auto;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 16px;
 }
 
 .modal__close {
@@ -30,12 +21,12 @@
   background-color: #fff; /* Ensure there is a background */
   color: #000; /* Ensure text is visible */
   z-index: 10;
-  margin-top: 407px;
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
   font-family: "Cabinet Grotesk";
   color: rgba(0, 0, 0, 1);
+  gap: 12px;
 }
 
 .modal__caption {

@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   visibility: hidden;
+  width: 100%;
 }
 
 .modal__opened {
