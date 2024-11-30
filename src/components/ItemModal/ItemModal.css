@@ -38,11 +38,11 @@
   color: rgba(0, 0, 0, 1);
 }
 
-.modal_caption {
+.modal__caption {
   margin: 0;
 }
 
-.modal_weather {
+.modal__weather {
   margin: 0;
 }
 
