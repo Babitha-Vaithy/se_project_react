@@ -47,7 +47,7 @@
 }
 
 @media (max-width: 600px) {
-  .modal_image {
+  .modal__image {
     width: 90%;
   }
 }
