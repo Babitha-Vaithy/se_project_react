@@ -3,11 +3,14 @@
   flex-direction: column;
   flex-grow: 1;
   border-radius: 16px;
+  padding: 0;
 }
 
 .modal__image {
   max-width: 100%;
   height: auto;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
 
 .modal__close {
@@ -27,6 +30,8 @@
   font-family: "Cabinet Grotesk";
   color: rgba(0, 0, 0, 1);
   gap: 12px;
+  border-radius: 16px;
+  margin-left: 32px;
 }
 
 .modal__caption {
