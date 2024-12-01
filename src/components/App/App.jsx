@@ -17,6 +17,11 @@ function App() {
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.name);
+  };
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -50,7 +55,7 @@ function App() {
       <ModalWithForm
         title="New garment"
         buttonText="Add garment"
-        activeModal={activeModal}
+        isOpen={activeModal === "add-garment"}
         onClose={closeActiveModal}
       >
         <label htmlFor="name" className="modal__label">
@@ -76,24 +81,48 @@ function App() {
         <fieldset className="modal__radio-buttons">
           <legend className="modal__legend">Select the weather type:</legend>
           <label htmlFor="hot" className="modal__label modal__label_type_radio">
-            <input type="radio" className="modal__radio-input" id="hot" /> Hot
+            <input
+              type="radio"
+              name="hot"
+              className="modal__radio-input"
+              id="hot"
+              checked={selectedOption === "hot"}
+              onChange={handleOptionChange}
+            />{" "}
+            Hot
           </label>
           <label
             htmlFor="warm"
             className="modal__label modal__label_type_radio"
           >
-            <input type="radio" className="modal__radio-input" id="warm" /> Warm
+            <input
+              type="radio"
+              name="warm"
+              className="modal__radio-input"
+              id="warm"
+              checked={selectedOption === "warm"}
+              onChange={handleOptionChange}
+            />{" "}
+            Warm
           </label>
           <label
             htmlFor="cold"
             className="modal__label modal__label_type_radio"
           >
-            <input type="radio" className="modal__radio-input" id="cold" /> Cold
+            <input
+              type="radio"
+              name="cold"
+              className="modal__radio-input"
+              id="cold"
+              checked={selectedOption === "cold"}
+              onChange={handleOptionChange}
+            />{" "}
+            Cold
           </label>
         </fieldset>
       </ModalWithForm>
       <ItemModal
-        activeModal={activeModal}
+        isOpen={activeModal === "preview"}
         card={selectedCard}
         onClose={closeActiveModal}
       />
