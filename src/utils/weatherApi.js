@@ -10,15 +10,23 @@ export const getWeather = ({ latitude, longitude }, APIkey) => {
   });
 };
 
-export const filterWeatherData = (data) => {
+export const filterWeatherData = (data, currentTemperatureUnitContext) => {
   const result = {};
   result.city = data.name;
   result.temp = { F: data.main.temp };
-  result.type = getWeatherType(result.temp.F);
+  const weather = {
+    temperature: {
+      F: Math.round(data.main.temp),
+      C: Math.round(((data.main.temp - 32) * 5) / 9),
+    },
+  };
+  result.type = getWeatherType(weather, currentTemperatureUnitContext);
+  result.weather = weather;
   return result;
 };
 
-const getWeatherType = (temperature) => {
+const getWeatherType = (temperature, currentTemperatureUnitContext) => {
+  const temp = temperature?.temperature?.[currentTemperatureUnitContext] || 999;
   if (temperature > 86) {
     return "hot";
   } else if (temperature >= 66 && temperature < 86) {
