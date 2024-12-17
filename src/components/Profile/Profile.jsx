@@ -1,7 +1,7 @@
 import React from "react";
 import SideBar from "../SideBar/SideBar";
 import ClothesSection from "../ClothesSection/ClothesSection";
-import "./profile.css";
+import "./Profile.css";
 
 function Profile({ handleCardClick }) {
   return (
