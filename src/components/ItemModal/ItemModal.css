@@ -32,6 +32,7 @@
   gap: 12px;
   border-radius: 16px;
   margin-left: 32px;
+  padding: 28px 28px 36px;
 }
 
 .modal__caption {
@@ -40,6 +41,23 @@
 
 .modal__weather {
   margin: 0;
+}
+
+.modal__footer_card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete__items {
+  max-width: 100%;
+  margin-right: 32px;
+  border: none;
+  background-color: transparent;
+  color: rgba(255, 77, 0, 1);
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  font-family: "Cabinet Grotesk";
 }
 
 @media (max-width: 600px) {

@@ -1,6 +1,6 @@
 .clothes__containter {
   display: flex;
-  margin-left: 164px;
+  margin-left: 116px;
   gap: 20px;
 }
 
@@ -25,5 +25,8 @@
 .clothes-section__items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  padding: 0;
+  margin-left: 116px;
+  gap: 20px;
 }
