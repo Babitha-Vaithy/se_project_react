@@ -1,16 +1,26 @@
 import "./Main.css";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
-// import { defaultClothingItems } from "../../utils/constants";
 
-function Main({ weatherData, handleCardClick, clothingItems }) {
-  console.log("main weather data -->", weatherData);
+function Main({
+  weatherData,
+  handleCardClick,
+  clothingItems,
+  currentTemperatureUnit,
+}) {
   return (
     <main>
-      <WeatherCard weatherData={weatherData} />
+      <WeatherCard
+        weatherData={weatherData}
+        currentTemperatureUnit={currentTemperatureUnit}
+      />
       <section className="cards">
         <p className="cards__text">
-          Today is {weatherData.temp.F} &deg; F / You may want to wear:
+          Today is{" "}
+          {currentTemperatureUnit === "F"
+            ? `${weatherData.temp.F} °F`
+            : `${weatherData.weather.temperature.C} °C`}
+          / You may want to wear:
         </p>
         <ul className="cards__list">
           {clothingItems &&

@@ -23,6 +23,8 @@
   font-family: "Cabinet Grotesk";
   font-weight: 700;
   color: rgba(0, 0, 0, 1);
+  padding-top: 28px;
+  padding-left: 28px;
 }
 
 .modal__close {
@@ -46,6 +48,8 @@
 .modal__form {
   display: flex;
   flex-direction: column;
+  padding-left: 28px;
+  padding-bottom: 32px;
 }
 
 .modal__label {

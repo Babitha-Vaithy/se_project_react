@@ -4,10 +4,10 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { coordinates, APIkey } from "../../utils/constants";
 import Header from "../Header/Header";
-import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
 import { Footer } from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
+import Main from "../Main/Main";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../Contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
@@ -35,7 +35,6 @@ function App() {
   };
 
   const handleAddClick = () => {
-    console.log("button");
     setActiveModal("add-garment");
   };
 
@@ -45,11 +44,20 @@ function App() {
 
   const onAddItem = (values) => {
     values["weather"] = selectedOption;
-    createItems(values);
+    createItems(values).then((data) => {
+      clothingItems.push(data);
+      setClothingItems(clothingItems);
+      closeActiveModal("");
+    });
   };
 
   const onDelete = () => {
     deleteItems(selectedCard._id);
+    const updateItems = clothingItems.filter((item) => {
+      return item._id != selectedCard._id;
+    });
+    setClothingItems(updateItems);
+    closeActiveModal();
   };
 
   const handleToggleSwitchChange = () => {
@@ -89,12 +97,19 @@ function App() {
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
+                  currentTemperatureUnit={currentTemperatureUnit}
                 />
               }
             />
             <Route
               path="/profile"
-              element={<Profile handleCardClick={handleCardClick} />}
+              element={
+                <Profile
+                  handleCardClick={handleCardClick}
+                  handleAddClick={handleAddClick}
+                  clothingItems={clothingItems}
+                />
+              }
             />
           </Routes>
 

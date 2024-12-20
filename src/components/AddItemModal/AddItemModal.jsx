@@ -10,13 +10,11 @@ const AddItemModal = ({
 }) => {
   const [name, setName] = useState();
   const handleNameChange = (e) => {
-    console.log(e.target.value);
     setName(e.target.value);
   };
 
   const [link, setUrl] = useState();
   const handleUrlChange = (e) => {
-    console.log(e.target.value);
     setUrl(e.target.value);
   };
 
