@@ -44,20 +44,24 @@ function App() {
 
   const onAddItem = (values) => {
     values["weather"] = selectedOption;
-    createItems(values).then((data) => {
-      clothingItems.unshift(data);
-      setClothingItems(clothingItems);
-      closeActiveModal("");
-    });
+    createItems(values)
+      .then((data) => {
+        setClothingItems((cards) => [data, ...cards]);
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   const onDelete = () => {
-    deleteItems(selectedCard._id);
-    const updateItems = clothingItems.filter((item) => {
-      return item._id != selectedCard._id;
-    });
-    setClothingItems(updateItems);
-    closeActiveModal();
+    deleteItems(selectedCard._id)
+      .then(() => {
+        const updateItems = clothingItems.filter((item) => {
+          return item._id != selectedCard._id;
+        });
+        setClothingItems(updateItems);
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   const handleToggleSwitchChange = () => {
@@ -71,7 +75,7 @@ function App() {
         const filteredData = filterWeatherData(data, currentTemperatureUnit);
         setWeatherData(filteredData);
       })
-      .catch();
+      .catch(console.error);
   }, []);
 
   useEffect(() => {
@@ -79,7 +83,7 @@ function App() {
       .then((data) => {
         setClothingItems(data);
       })
-      .catch();
+      .catch(console.error);
   }, []);
 
   return (
@@ -97,7 +101,6 @@ function App() {
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
-                  currentTemperatureUnit={currentTemperatureUnit}
                 />
               }
             />
