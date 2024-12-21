@@ -8,7 +8,7 @@ const AddItemModal = ({
   selectedOption,
   handleOptionChange,
 }) => {
-  const [name, setName] = useState();
+  const [name, setName] = useState("");
   const handleNameChange = (e) => {
     setName(e.target.value);
   };

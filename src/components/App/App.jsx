@@ -45,7 +45,7 @@ function App() {
   const onAddItem = (values) => {
     values["weather"] = selectedOption;
     createItems(values).then((data) => {
-      clothingItems.push(data);
+      clothingItems.unshift(data);
       setClothingItems(clothingItems);
       closeActiveModal("");
     });
