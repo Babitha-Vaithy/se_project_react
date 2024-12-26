@@ -95,6 +95,12 @@
       "name": "T-Shirt",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
+    },
+    {
+      "name": "pic",
+      "imageUrl": "https://webneel.com/daily/sites/default/files/images/daily/05-2018/portrait-photography-by-dennis-drozhzhin.jpg",
+      "weather": "cold",
+      "_id": 17
     }
   ]
 }
