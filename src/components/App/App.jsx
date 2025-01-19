@@ -12,6 +12,9 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../Contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import { getItems, createItems, deleteItems } from "../../utils/api";
+import RegisterModal from "../RegisterModal/RegisterModal";
+import LoginModal from "../LoginModal/LoginModal";
+import { signUp, logIn } from "../../utils/auth";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -38,6 +41,14 @@ function App() {
     setActiveModal("add-garment");
   };
 
+  const handleSignupClick = () => {
+    setActiveModal("signUp");
+  };
+
+  const handleLogInClick = () => {
+    setActiveModal("login");
+  };
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -59,6 +70,22 @@ function App() {
           return item._id != selectedCard._id;
         });
         setClothingItems(updateItems);
+        closeActiveModal();
+      })
+      .catch(console.error);
+  };
+
+  const onSignUp = (name, link, email, password) => {
+    signUp(name, link, email, password)
+      .then(() => {
+        closeActiveModal();
+      })
+      .catch(console.error);
+  };
+
+  const onLogIn = (email, password) => {
+    logIn(email, password)
+      .then(() => {
         closeActiveModal();
       })
       .catch(console.error);
@@ -92,7 +119,12 @@ function App() {
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <div className="page__content">
-          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+          <Header
+            handleLogInClick={handleLogInClick}
+            handleSignupClick={handleSignupClick}
+            handleAddClick={handleAddClick}
+            weatherData={weatherData}
+          />
           <Routes>
             <Route
               path="/"
@@ -133,6 +165,21 @@ function App() {
             card={selectedCard}
             onClose={closeActiveModal}
             onDelete={onDelete}
+          />
+        )}
+        {activeModal === "signUp" && (
+          <RegisterModal
+            closeActiveModal={closeActiveModal}
+            isOpen={activeModal === "signUp"}
+            onSignUp={onSignUp}
+          />
+        )}
+
+        {activeModal === "login" && (
+          <LoginModal
+            closeActiveModal={closeActiveModal}
+            isOpen={activeModal === "login"}
+            onLogIn={onLogIn}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>

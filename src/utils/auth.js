@@ -11,29 +11,32 @@ export function request(url, options) {
   return fetch(url, options).then((data) => checkResponse(data));
 }
 
-function getItems() {
-  return request(`${baseUrl}/items`, null);
-}
-
-function createItems({ name, link, weather }) {
-  return request(`${baseUrl}/items`, {
+function signUp({ name, link, email, password }) {
+  return request(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name: name, imageUrl: link, weather: weather }),
+    body: JSON.stringify({
+      name: name,
+      avatar: link,
+      email: email,
+      password: password,
+    }),
   });
 }
 
-function deleteItems(id) {
-  return request(`${baseUrl}/items/${id}`, {
-    method: "DELETE",
+function logIn({ email, password }) {
+  return request(`${baseUrl}/signin`, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
+    body: JSON.stringify({
+      email: email,
+      password: password,
+    }),
   });
 }
 
-
-
-export { getItems, createItems, deleteItems };
+export { signUp, logIn };

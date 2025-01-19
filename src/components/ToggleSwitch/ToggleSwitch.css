@@ -10,7 +10,7 @@
   width: 55px;
   height: 30px;
   appearance: none;
-  margin-left: 516px;
+  margin-left: 700px;
 }
 
 .switch__slider {
@@ -27,13 +27,13 @@
 .switch__slider-F {
   top: 0px;
   left: 2px;
-  margin-left: 515px;
+  margin-left: 699px;
 }
 
 .switch__slider-C {
   top: 0px;
   left: -2px;
-  margin-left: 542px;
+  margin-left: 726px;
 }
 
 .switch__active {
@@ -47,7 +47,7 @@
 .switch__temp-F {
   position: absolute;
   top: -7px;
-  margin-left: 516px;
+  margin-left: 700px;
   left: 12px;
   color: white;
   font-size: 14px;
@@ -59,7 +59,7 @@
 .switch__temp-C {
   position: absolute;
   top: -8px;
-  margin-left: 516px;
+  margin-left: 700px;
   left: 35px;
   color: white;
   font-size: 14px;

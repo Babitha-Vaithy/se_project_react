@@ -19,30 +19,49 @@
   font-family: "Cabinet Grotesk";
 }
 
-.header__add-clothes-btn {
+/* .header__add-clothes-btn {
   margin: 0 20px 0 auto;
   font-family: "Cabinet Grotesk";
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
   border: transparent;
-}
+} */
 
-.header__user-containter {
+/* .header__user-containter {
   display: flex;
   align-items: center;
   gap: 12px;
-}
+} */
 
-.header__link {
+/* .header__link {
   text-decoration: none;
   color: rgba(0, 0, 0, 1);
-}
+} */
 
-.header__username {
+/* .header__username {
   margin: 0;
   font-family: "Cabinet Grotesk";
   font-size: 20px;
   line-height: 24.8px;
   font-weight: 700;
+} */
+
+.header__signup {
+  margin: 0 24px 0 50px;
+  font-family: "Cabinet Grotesk";
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  border: transparent;
+  gap: 20px;
+}
+
+.header__login {
+  margin: 0 20px 0 auto;
+  font-family: "Cabinet Grotesk";
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  border: transparent;
 }
