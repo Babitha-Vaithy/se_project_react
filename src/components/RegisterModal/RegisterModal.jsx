@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const RegisterModal = ({ closeActiveModal, onSignUp, isOpen }) => {
-  console.log("sucess");
   const [email, setEmail] = useState("");
 
   const handleEmailChange = (e) => {

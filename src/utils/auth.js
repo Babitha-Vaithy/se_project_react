@@ -26,17 +26,27 @@ function signUp({ name, link, email, password }) {
   });
 }
 
-function logIn({ email, password }) {
+function logIn(email, password) {
   return request(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      email: email,
-      password: password,
+      email,
+      password,
     }),
   });
 }
 
-export { signUp, logIn };
+function getUser(token) {
+  return request(`${baseUrl}/users/me`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  });
+}
+
+export { signUp, logIn, getUser };

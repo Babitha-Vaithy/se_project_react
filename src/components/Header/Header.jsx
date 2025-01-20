@@ -25,19 +25,19 @@ function Header({
         {currentDate}, {weatherData.city}
       </p>
       <ToggleSwitch />
-      {/* <button
+      <button
         onClick={handleAddClick}
         type="button"
         className="header__add-clothes-btn"
       >
         + Add clothes
-      </button> */}
-      {/* <Link to="/profile" className="header__link">
+      </button> 
+      <Link to="/profile" className="header__link">
         <div className="header__user-containter">
           <p className="header__username">Babitha Vaithy</p>
           <img src={avatar} alt="Babitha Vaithy" className="header__avatar" />
         </div>
-      </Link> */}
+      </Link>
       <button
         onClick={handleSignupClick}
         type="button"

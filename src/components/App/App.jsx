@@ -14,7 +14,7 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import { getItems, createItems, deleteItems } from "../../utils/api";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
-import { signUp, logIn } from "../../utils/auth";
+import { signUp, logIn, getUser } from "../../utils/auth";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -75,17 +75,18 @@ function App() {
       .catch(console.error);
   };
 
-  const onSignUp = (name, link, email, password) => {
-    signUp(name, link, email, password)
-      .then(() => {
-        closeActiveModal();
+  const onSignUp = ({ name, link, email, password }) => {
+    signUp({ name, link, email, password })
+      .then((data) => {
+        onLogIn(data.email, password);
       })
       .catch(console.error);
   };
 
   const onLogIn = (email, password) => {
     logIn(email, password)
-      .then(() => {
+      .then((res) => {
+        localStorage.setItem("jwt", res.token);
         closeActiveModal();
       })
       .catch(console.error);
@@ -112,6 +113,13 @@ function App() {
       })
       .catch(console.error);
   }, []);
+
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt !== null) {
+      getUser(jwt);
+    }
+  });
 
   return (
     <div className="page">
