@@ -17,3 +17,7 @@
   font-weight: 700;
   font-family: "Cabinet Grotesk";
 }
+
+.sidebar__profile {
+  display: block;
+}

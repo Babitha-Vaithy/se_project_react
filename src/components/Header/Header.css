@@ -65,3 +65,9 @@
   font-weight: 700;
   border: transparent;
 }
+
+.header__avatar {
+  width: 40px;
+  height: 40px;
+  border: 1px;
+}

@@ -15,11 +15,12 @@ function getItems() {
   return request(`${baseUrl}/items`, null);
 }
 
-function createItems({ name, link, weather }) {
+function createItems({ name, link, weather }, jwt) {
   return request(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${jwt}`,
     },
     body: JSON.stringify({ name: name, imageUrl: link, weather: weather }),
   });
@@ -34,6 +35,18 @@ function deleteItems(id) {
   });
 }
 
+function editProfile({ name, avatar }, jwt) {
+  return request(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${jwt}`,
+    },
+    body: JSON.stringify({
+      name,
+      avatar,
+    }),
+  });
+}
 
-
-export { getItems, createItems, deleteItems };
+export { getItems, createItems, deleteItems, editProfile };
