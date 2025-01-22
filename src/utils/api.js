@@ -49,4 +49,31 @@ function editProfile({ name, avatar }, jwt) {
   });
 }
 
-export { getItems, createItems, deleteItems, editProfile };
+function addCardLike(id, jwt) {
+  return request(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${jwt}`,
+    },
+  });
+}
+
+function removeCardLike(id, jwt) {
+  return request(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${jwt}`,
+    },
+  });
+}
+
+export {
+  getItems,
+  createItems,
+  deleteItems,
+  editProfile,
+  addCardLike,
+  removeCardLike,
+};
