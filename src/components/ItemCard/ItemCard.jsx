@@ -1,17 +1,18 @@
 import "./ItemCard.css";
 import likebtn from "../../assets/likebtn.svg";
 import unlikebtn from "../../assets/unlike.svg";
+import { CurrentUserContext } from "../../Contexts/CurrentUserContext";
+import { useContext } from "react";
 
 function ItemCard({ item, onCardClick, onCardLike }) {
+  const contextUserData = useContext(CurrentUserContext);
+  const currentUser = contextUserData !== null ? contextUserData : null;
   const handleCardClick = () => {
     onCardClick(item);
   };
 
   const handleLike = (item) => {
-    console.log(item);
-    // get id from item_.id
-    // if item.items.length is greater than 0 , do dislike/delete item else do like/put item
-    // onCardLike(item._id, isLiked);
+    onCardLike(item._id, item.likes.length > 0 ? true : false);
   };
 
   return (
@@ -23,13 +24,18 @@ function ItemCard({ item, onCardClick, onCardLike }) {
         src={item.imageUrl}
         alt={item.name}
       />
-      <img
-        onClick={handleLike(item)}
-        //item.likes!=null ? likebtn : unlikebtn
-        src={item.likes.length > 0 ? likebtn : unlikebtn}
-        alt="Like"
-        className="card__likebtn"
-      />
+      {item.owner === currentUser && currentUser._id && (
+        <img
+          onClick={() => handleLike(item)}
+          src={
+            item.likes.some((id) => id === currentUser && currentUser._id)
+              ? likebtn
+              : unlikebtn
+          }
+          alt="Like"
+          className="card__likebtn"
+        />
+      )}
     </li>
   );
 }

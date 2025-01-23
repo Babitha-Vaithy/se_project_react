@@ -26,11 +26,12 @@ function createItems({ name, link, weather }, jwt) {
   });
 }
 
-function deleteItems(id) {
+function deleteItems(id, jwt) {
   return request(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${jwt}`,
     },
   });
 }

@@ -80,7 +80,8 @@ function App() {
   };
 
   const onDelete = () => {
-    deleteItems(selectedCard._id)
+    const jwt = localStorage.getItem("jwt");
+    deleteItems(selectedCard._id, jwt)
       .then(() => {
         const updateItems = clothingItems.filter((item) => {
           return item._id != selectedCard._id;
@@ -115,6 +116,12 @@ function App() {
         closeActiveModal();
       })
       .catch(console.error);
+  };
+
+  const onSignOut = () => {
+    console.log("hsbd");
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
   };
 
   const handleToggleSwitchChange = () => {
@@ -203,6 +210,8 @@ function App() {
                     handleAddClick={handleAddClick}
                     handleEditProfile={handleEditProfile}
                     clothingItems={clothingItems}
+                    onCardLike={handleCardLike}
+                    onSignOut={onSignOut}
                   />
                 }
               />

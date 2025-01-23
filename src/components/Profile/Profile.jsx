@@ -10,6 +10,8 @@ function Profile({
   handleAddClick,
   clothingItems,
   handleEditProfile,
+  onCardLike,
+  onSignOut,
 }) {
   const contextUserData = useContext(CurrentUserContext);
   const currentUser = contextUserData !== null ? contextUserData : null;
@@ -17,7 +19,10 @@ function Profile({
     <div className="profile">
       {currentUser && (
         <section className="profile__sidebar">
-          <SideBar handleEditProfile={handleEditProfile} />
+          <SideBar
+            handleEditProfile={handleEditProfile}
+            onSignOut={onSignOut}
+          />
         </section>
       )}
       <section className="profile__clothing-items">
@@ -25,6 +30,7 @@ function Profile({
           handleCardClick={handleCardClick}
           handleAddClick={handleAddClick}
           clothingItems={clothingItems}
+          onCardLike={onCardLike}
         />
       </section>
     </div>

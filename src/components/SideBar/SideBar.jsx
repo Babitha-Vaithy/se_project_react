@@ -3,7 +3,7 @@ import "./SideBar.css";
 import { CurrentUserContext } from "../../Contexts/CurrentUserContext";
 import { useContext } from "react";
 
-function SideBar({ handleEditProfile }) {
+function SideBar({ handleEditProfile, onSignOut }) {
   const contextUserData = useContext(CurrentUserContext);
   const currentUser = contextUserData !== null ? contextUserData : null;
   return (
@@ -26,11 +26,8 @@ function SideBar({ handleEditProfile }) {
         >
           Change profile data
         </button>
-        <button
-          // onClick={handleEditProfile}
-          type="button"
-          className="sidebar__logout"
-        >
+
+        <button onClick={onSignOut} type="button" className="sidebar__logout">
           Log out
         </button>
       </div>
