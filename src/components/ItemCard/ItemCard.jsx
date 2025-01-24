@@ -24,11 +24,11 @@ function ItemCard({ item, onCardClick, onCardLike }) {
         src={item.imageUrl}
         alt={item.name}
       />
-      {item.owner === currentUser && currentUser._id && (
+      {currentUser && item.owner === currentUser._id && (
         <img
           onClick={() => handleLike(item)}
           src={
-            item.likes.some((id) => id === currentUser && currentUser._id)
+            item.likes.some((id) => id === currentUser._id)
               ? likebtn
               : unlikebtn
           }

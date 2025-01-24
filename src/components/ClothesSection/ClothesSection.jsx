@@ -14,7 +14,7 @@ function ClothesSection({
   const userClothingItems =
     clothingItems &&
     clothingItems.filter((item) => {
-      return item.owner === currentUser && currentUser._id;
+      if (currentUser) return item.owner === currentUser._id;
     });
 
   return (

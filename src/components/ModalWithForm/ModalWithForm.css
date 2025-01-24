@@ -106,7 +106,7 @@
   width: 124px;
   height: 36px;
   margin-top: 24px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 1);
   border-radius: 4px;
   border: none;
   font-size: 16px;
@@ -114,4 +114,8 @@
   font-family: "Cabinet Grotesk";
   font-weight: 700;
   color: rgba(255, 255, 255, 1);
+}
+
+.modal__submit:hover {
+  background-color: rgba(0, 0, 0, 0.6);
 }

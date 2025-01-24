@@ -27,3 +27,16 @@
   border: solid 1px;
   border-radius: 20px;
 }
+
+.card__likebtn {
+  position: absolute;
+  text-align: center;
+  top: 15px;
+  margin: 0;
+  width: 18px;
+  height: 15px;
+  gap: 10px;
+  right: 108px;
+  border: 2px;
+  color: rgba(0, 0, 0, 0.6);
+}
