@@ -3,7 +3,7 @@ import closeBtn from "../../assets/closeBtn.svg";
 import { CurrentUserContext } from "../../Contexts/CurrentUserContext";
 import { useContext } from "react";
 
-function ItemModal({ isOpen, onClose, card, onDelete }) {
+function ItemModal({ isOpen, onClose, card, handleDeleteItem }) {
   const contextUserData = useContext(CurrentUserContext);
   const currentUser = contextUserData !== null ? contextUserData : null;
 
@@ -20,7 +20,7 @@ function ItemModal({ isOpen, onClose, card, onDelete }) {
             <p className="modal__weather">Weather: {card.weather}</p>
           </div>
           {card.owner === currentUser._id && (
-            <button onClick={onDelete} className="delete__items">
+            <button onClick={handleDeleteItem} className="delete__items">
               Delete items
             </button>
           )}

@@ -4,7 +4,7 @@ import unlikebtn from "../../assets/unlike.svg";
 import { CurrentUserContext } from "../../Contexts/CurrentUserContext";
 import { useContext } from "react";
 
-function ItemCard({ item, onCardClick, onCardLike }) {
+function ItemCard({ item, onCardClick, onCardLike, handleDeleteItem }) {
   const contextUserData = useContext(CurrentUserContext);
   const currentUser = contextUserData !== null ? contextUserData : null;
   const handleCardClick = () => {

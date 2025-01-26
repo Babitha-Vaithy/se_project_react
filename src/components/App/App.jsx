@@ -24,6 +24,7 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import { signUp, logIn, getUser } from "../../utils/auth";
+import DeleteItemsModal from "../DeleteItemsModal/DeleteItemsModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -66,6 +67,12 @@ function App() {
 
   const handleEditProfile = () => {
     setActiveModal("editprofile");
+  };
+
+  const handleDeleteItem = () => {
+    console.log("Success");
+    closeActiveModal();
+    setActiveModal("deleteitem");
   };
 
   const onAddItem = (values) => {
@@ -199,6 +206,7 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
+                    handleDeleteItem={handleDeleteItem}
                   />
                 }
               />
@@ -212,6 +220,7 @@ function App() {
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
                     onSignOut={onSignOut}
+                    handleDeleteItem={handleDeleteItem}
                   />
                 }
               />
@@ -233,7 +242,7 @@ function App() {
               isOpen={activeModal === "preview"}
               card={selectedCard}
               onClose={closeActiveModal}
-              onDelete={onDelete}
+              handleDeleteItem={handleDeleteItem}
             />
           )}
           {activeModal === "signUp" && (
@@ -257,6 +266,14 @@ function App() {
               closeActiveModal={closeActiveModal}
               isOpen={activeModal === "editprofile"}
               onEditProfile={onEditProfile}
+            />
+          )}
+
+          {activeModal === "deleteitem" && (
+            <DeleteItemsModal
+              closeActiveModal={closeActiveModal}
+              isOpen={activeModal === "deleteitem"}
+              onDelete={onDelete}
             />
           )}
         </CurrentUserContext.Provider>

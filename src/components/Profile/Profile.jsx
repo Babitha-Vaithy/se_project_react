@@ -12,6 +12,7 @@ function Profile({
   handleEditProfile,
   onCardLike,
   onSignOut,
+  handleDeleteItem,
 }) {
   const contextUserData = useContext(CurrentUserContext);
   const currentUser = contextUserData !== null ? contextUserData : null;
