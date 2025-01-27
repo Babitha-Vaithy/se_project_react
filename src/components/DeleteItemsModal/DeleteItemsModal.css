@@ -20,7 +20,7 @@
   max-width: 670px;
 }
 
-.modal__title {
+.delete__title {
   width: 367px;
   height: 48px;
   font-family: "Cabinet Grotesk";
@@ -32,6 +32,8 @@
   text-wrap: normal;
   margin-bottom: 0;
   margin-left: 136px;
+  margin-top: 60px;
+  padding: 0;
 }
 
 .delete__deleteitem {
@@ -59,5 +61,6 @@
   text-align: center;
   background-color: transparent;
   margin-left: 313px;
+  margin-bottom: 60px;
   border: none;
 }

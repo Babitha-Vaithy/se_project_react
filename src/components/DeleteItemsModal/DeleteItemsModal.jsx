@@ -2,7 +2,7 @@ import React from "react";
 import closeBtn from "../../assets/closeBtn.svg";
 import "./DeleteItemsModal.css";
 
-const DeleteItemsModal = ({ onClose, isOpen, onDelete, handleDeleteItem }) => {
+const DeleteItemsModal = ({ onClose, isOpen, onDelete }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -10,7 +10,7 @@ const DeleteItemsModal = ({ onClose, isOpen, onDelete, handleDeleteItem }) => {
   return (
     <div className={`modal ${isOpen === true && "modal_opened"}`}>
       <div className="modal__content">
-        <h2 className="modal__title">
+        <h2 className="delete__title">
           Are you sure you want to delete this item? This action is
           irreversible.
         </h2>
@@ -22,7 +22,7 @@ const DeleteItemsModal = ({ onClose, isOpen, onDelete, handleDeleteItem }) => {
           Yes, delete item
         </button>
         <div className="delete__icon">
-          <button onClick={handleDeleteItem} className="delete__cancel">
+          <button onClick={onClose} className="delete__cancel">
             Cancel
           </button>
         </div>

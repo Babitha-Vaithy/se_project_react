@@ -70,7 +70,6 @@ function App() {
   };
 
   const handleDeleteItem = () => {
-    console.log("Success");
     closeActiveModal();
     setActiveModal("deleteitem");
   };
@@ -274,6 +273,7 @@ function App() {
               closeActiveModal={closeActiveModal}
               isOpen={activeModal === "deleteitem"}
               onDelete={onDelete}
+              onClose={closeActiveModal}
             />
           )}
         </CurrentUserContext.Provider>
