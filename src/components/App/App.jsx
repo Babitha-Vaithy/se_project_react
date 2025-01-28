@@ -25,6 +25,7 @@ import LoginModal from "../LoginModal/LoginModal";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import { signUp, logIn, getUser } from "../../utils/auth";
 import DeleteItemsModal from "../DeleteItemsModal/DeleteItemsModal";
+import ProfileWrapper from "../ProfileWrapper/ProfileWrapper";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -212,15 +213,17 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <Profile
-                    handleCardClick={handleCardClick}
-                    handleAddClick={handleAddClick}
-                    handleEditProfile={handleEditProfile}
-                    clothingItems={clothingItems}
-                    onCardLike={handleCardLike}
-                    onSignOut={onSignOut}
-                    handleDeleteItem={handleDeleteItem}
-                  />
+                  <ProfileWrapper>
+                    <Profile
+                      handleCardClick={handleCardClick}
+                      handleAddClick={handleAddClick}
+                      handleEditProfile={handleEditProfile}
+                      clothingItems={clothingItems}
+                      onCardLike={handleCardLike}
+                      onSignOut={onSignOut}
+                      handleDeleteItem={handleDeleteItem}
+                    />
+                  </ProfileWrapper>
                 }
               />
             </Routes>
