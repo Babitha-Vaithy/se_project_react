@@ -27,4 +27,4 @@ Project features:
 
 Project Sprint 14 Demo Video - https://vimeo.com/manage/videos/1051331295/49ddd61016
 
-PRoject Sprint 13(Backend) link: https://github.com/Babitha-Vaithy/se_project_express
+Project Sprint 13(Backend) link: https://github.com/Babitha-Vaithy/se_project_express
