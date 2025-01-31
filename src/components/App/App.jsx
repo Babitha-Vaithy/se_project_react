@@ -126,7 +126,6 @@ function App() {
   };
 
   const onSignOut = () => {
-    console.log("hsbd");
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
   };
@@ -252,6 +251,7 @@ function App() {
               closeActiveModal={closeActiveModal}
               isOpen={activeModal === "signUp"}
               onSignUp={onSignUp}
+              handleLogInClick={handleLogInClick}
             />
           )}
 

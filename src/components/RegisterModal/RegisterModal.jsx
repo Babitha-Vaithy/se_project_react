@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegisterModal.css";
+import { CurrentUserContext } from "../../Contexts/CurrentUserContext";
+import { useContext } from "react";
 
-const RegisterModal = ({ closeActiveModal, onSignUp, isOpen }) => {
+const RegisterModal = ({
+  closeActiveModal,
+  onSignUp,
+  isOpen,
+  handleLogInClick,
+}) => {
   const [email, setEmail] = useState("");
 
   const handleEmailChange = (e) => {
@@ -25,6 +32,7 @@ const RegisterModal = ({ closeActiveModal, onSignUp, isOpen }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSignUp({ name, link, email, password });
+    // onLogIn(email, password);
   };
 
   return (
@@ -81,6 +89,9 @@ const RegisterModal = ({ closeActiveModal, onSignUp, isOpen }) => {
           onChange={handleUrlChange}
         />
       </label>
+      <button onClick={handleLogInClick} className="signup__login">
+        or Log In
+      </button>
     </ModalWithForm>
   );
 };
