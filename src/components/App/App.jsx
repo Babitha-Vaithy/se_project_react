@@ -111,6 +111,7 @@ function App() {
     logIn(email, password)
       .then((res) => {
         localStorage.setItem("jwt", res.token);
+        checkToken(res.token);
         closeActiveModal();
       })
       .catch(console.error);
@@ -128,6 +129,18 @@ function App() {
   const onSignOut = () => {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
+    setCurrentUser(null);
+  };
+
+  const checkToken = (token) => {
+    if (token) {
+      getUser(token)
+        .then((data) => {
+          setCurrentUser(data);
+          setIsLoggedIn(true);
+        })
+        .catch(console.error);
+    }
   };
 
   const handleToggleSwitchChange = () => {
@@ -173,14 +186,7 @@ function App() {
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
-    if (jwt !== null) {
-      getUser(jwt)
-        .then((data) => {
-          setCurrentUser(data);
-          setIsLoggedIn(true);
-        })
-        .catch(console.error);
-    }
+    checkToken(jwt);
   }, []);
 
   return (
@@ -212,7 +218,7 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <ProfileWrapper>
+                  <ProfileWrapper isLoggedIn={isLoggedIn}>
                     <Profile
                       handleCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
