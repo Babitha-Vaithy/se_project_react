@@ -122,6 +122,9 @@ function App() {
     editProfile({ name, avatar }, jwt)
       .then((data) => {
         closeActiveModal();
+        currentUser.name = name;
+        currentUser.avatar = avatar;
+        setCurrentUser(currentUser);
       })
       .catch(console.error);
   };
