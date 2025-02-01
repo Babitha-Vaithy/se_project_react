@@ -25,7 +25,7 @@ import LoginModal from "../LoginModal/LoginModal";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import { signUp, logIn, getUser } from "../../utils/auth";
 import DeleteItemsModal from "../DeleteItemsModal/DeleteItemsModal";
-import ProfileWrapper from "../ProfileWrapper/ProfileWrapper";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -218,7 +218,7 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <ProfileWrapper isLoggedIn={isLoggedIn}>
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
                     <Profile
                       handleCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
@@ -228,7 +228,7 @@ function App() {
                       onSignOut={onSignOut}
                       handleDeleteItem={handleDeleteItem}
                     />
-                  </ProfileWrapper>
+                  </ProtectedRoute>
                 }
               />
             </Routes>
@@ -266,6 +266,7 @@ function App() {
               closeActiveModal={closeActiveModal}
               isOpen={activeModal === "login"}
               onLogIn={onLogIn}
+              handleSignupClick={handleSignupClick}
             />
           )}
 

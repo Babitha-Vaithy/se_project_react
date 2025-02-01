@@ -32,7 +32,6 @@ const RegisterModal = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     onSignUp({ name, link, email, password });
-    // onLogIn(email, password);
   };
 
   return (
@@ -89,7 +88,11 @@ const RegisterModal = ({
           onChange={handleUrlChange}
         />
       </label>
-      <button onClick={handleLogInClick} className="signup__login">
+      <button
+        type="button"
+        onClick={handleLogInClick}
+        className="signup__login"
+      >
         or Log In
       </button>
     </ModalWithForm>

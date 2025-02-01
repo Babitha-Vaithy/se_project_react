@@ -3,7 +3,7 @@ import { CurrentUserContext } from "../../Contexts/CurrentUserContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ProfileWrapper = ({ isLoggedIn, children }) => {
+const ProtectedRoute = ({ isLoggedIn, children }) => {
   const contextUserData = useContext(CurrentUserContext);
   const currentUser = contextUserData !== null ? contextUserData : null;
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const ProfileWrapper = ({ isLoggedIn, children }) => {
     }
   }, [currentUser, isLoggedIn]);
 
-  return <div className="card">{children}</div>;
+  return <div>{children}</div>;
 };
 
-export default ProfileWrapper;
+export default ProtectedRoute;

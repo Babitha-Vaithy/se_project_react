@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
 
-const LoginModal = ({ closeActiveModal, onLogIn, isOpen }) => {
+const LoginModal = ({
+  closeActiveModal,
+  onLogIn,
+  isOpen,
+  handleSignupClick,
+}) => {
   const [email, setEmail] = useState("");
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -48,6 +53,13 @@ const LoginModal = ({ closeActiveModal, onLogIn, isOpen }) => {
           onChange={handlePasswordChange}
         />
       </label>
+      <button
+        type="button"
+        onClick={handleSignupClick}
+        className="login__signup"
+      >
+        or Sign Up
+      </button>
     </ModalWithForm>
   );
 };

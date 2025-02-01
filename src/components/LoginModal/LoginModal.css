@@ -1,0 +1,14 @@
+.login__signup {
+  width: 84px;
+  height: 20px;
+  background-color: transparent;
+  margin-bottom: -54px;
+  border: none;
+  margin-left: 143px;
+  margin-top: 30px;
+  font-family: "Cabinet Grotesk";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.5);
+}

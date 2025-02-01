@@ -24,7 +24,7 @@ function ItemCard({ item, onCardClick, onCardLike, handleDeleteItem }) {
         src={item.imageUrl}
         alt={item.name}
       />
-      {currentUser && item.owner === currentUser._id && (
+      {currentUser && (
         <img
           onClick={() => handleLike(item)}
           src={

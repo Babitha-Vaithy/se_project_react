@@ -16,6 +16,10 @@ function ClothesSection({
     clothingItems.filter((item) => {
       if (currentUser) return item.owner === currentUser._id;
     });
+  userClothingItems &&
+    userClothingItems.sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
 
   return (
     <div className="clothes-section">

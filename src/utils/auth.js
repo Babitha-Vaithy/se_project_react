@@ -1,15 +1,6 @@
+import { request } from "./api";
+
 const baseUrl = "http://localhost:3001";
-
-export function checkResponse(res) {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Error ${res.status}`);
-}
-
-export function request(url, options) {
-  return fetch(url, options).then((data) => checkResponse(data));
-}
 
 function signUp({ name, link, email, password }) {
   return request(`${baseUrl}/signup`, {
