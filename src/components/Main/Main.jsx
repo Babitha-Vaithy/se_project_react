@@ -12,6 +12,11 @@ function Main({
   handleDeleteItem,
 }) {
   const contextData = useContext(CurrentTemperatureUnitContext);
+  const items =
+    clothingItems &&
+    clothingItems.filter((clothingItem) => {
+      return clothingItem.weather === weatherData.type;
+    });
   return (
     <main>
       <WeatherCard
@@ -27,22 +32,17 @@ function Main({
           / You may want to wear:
         </p>
         <ul className="cards__list">
-          {clothingItems &&
-            clothingItems
-              .filter((item) => {
-                return item.weather === weatherData.type;
-              })
-              .map((item) => {
-                return (
-                  <ItemCard
-                    key={item._id}
-                    item={item}
-                    onCardClick={handleCardClick}
-                    onCardLike={onCardLike}
-                    handleDeleteItem={handleDeleteItem}
-                  />
-                );
-              })}
+          {items.map((item) => {
+            return (
+              <ItemCard
+                key={item._id}
+                item={item}
+                onCardClick={handleCardClick}
+                onCardLike={onCardLike}
+                handleDeleteItem={handleDeleteItem}
+              />
+            );
+          })}
         </ul>
       </section>
     </main>

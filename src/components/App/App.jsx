@@ -37,7 +37,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [selectedOption, setSelectedOption] = useState(null);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [clothingItems, setClothingItems] = useState(null);
+  const [clothingItems, setClothingItems] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -80,7 +80,7 @@ function App() {
     const jwt = localStorage.getItem("jwt");
     createItems(values, jwt)
       .then((data) => {
-        setClothingItems((cards) => [data, ...cards]);
+        setClothingItems((cards) => [data.data, ...cards]);
         closeActiveModal();
       })
       .catch(console.error);
